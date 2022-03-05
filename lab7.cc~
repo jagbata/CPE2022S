@@ -1,0 +1,28 @@
+#include <iostream>
+#include<cmath>
+using namespace std;
+
+
+uint64_t dot (uint64_t a[], uint64_t b[], int len){
+  uint64_t mult =0;
+  uint64_t add =0;
+  for(int i =len; i>=0;i--){
+    mult+=a[i]*b[i];
+    return mult;
+  }
+   
+     
+      
+  
+  return mult;
+}
+
+
+
+int main(){
+  uint64_t a[]={2,3,2,5};
+  uint64_t b[] ={3,2,3,2};
+  cout<< "yo its "<<dot(a,b,4)<<'\n';
+
+  return 0;
+}
