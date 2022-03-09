@@ -14,25 +14,25 @@ _Z3dotPmS_i:
 	bgt 1b
 	mov x0,x6
 	ret
-	/*
+	
 	
 	.global _Z4dot1PiS_i
 
 _Z4dot1PiS_i:
 	mov w6,0
 1:                                                                                                                                        
-	ldr	w3,[x0]
-	ldr	w4,[x1]	
+	ldrsw	w3,[x0]
+	ldrsw	w4,[x1]	
 	mul w5,w4,w3
 	add w6,w6,w5
 	add x0,x0,4
 	add x1,x1,4
 	sub w2,w2,1
 	cmp w2,1
-	fcvt.f32.f64 x0,w6
+	fcvt.f32.f64 x0,w6 // scvt.s32.s64
 	bgt 1b
 	ret
-	*/
+	
 	
 	.global _Z5hypotdd //check for correct type
 _Z5hypotdd:
