@@ -19,18 +19,18 @@ _Z3dotPmS_i:
 	.global _Z4dot1PiS_i
 
 _Z4dot1PiS_i:
-	mov w6,0
+	mov x6,0
 1:                                                                                                                                        
-	ldrsw	w3,[x0]
-	ldrsw	w4,[x1]	
-	mul w5,w4,w3
-	add w6,w6,w5
+	ldrsw	x3,[x0]
+	ldrsw	x4,[x1]	
+	mul x5,x4,x3
+	add x6,x6,x5
 	add x0,x0,4
 	add x1,x1,4
-	sub w2,w2,1
-	cmp w2,1
-	fcvt.f32.f64 x0,w6 // scvt.s32.s64
+	sub x2,x2,1
+	cmp x2,0
 	bgt 1b
+	mov x0,x6
 	ret
 	
 	
