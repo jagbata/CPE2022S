@@ -38,35 +38,32 @@ _Z12order_of_opsmmm:
 	add x4,x3,x0
 	mov x0,x4
 	ret
-/*
+
 	.global _Z12count3nplus1m
 _Z12count3nplus1m:
-	mov x1,1
-	mov x2,0
-	mov x3,2
-	mov x4,3
-	mov x6,0
-	mov x7,1 // want this to always be 1
-	mov x8,0
-	
-	mov x2,x0%2
-	cmp x2,0
-	bgt odd
-	beq exit
-
-odd:
-	mul x5,x0,x4
-	add x6,x5,x7 //x6 =3n+1
-divloop:
-	udiv x8,x6,x3
-	cmp x6,1
-	bge divloop
-exit:
-	udiv x0,x0,x3
+	mov x1,0	
+	mov x4,2
+	mov x5,0
+loop:
 	cmp x0,1
-	bge exit
+	ble exit
+	and x2, x0, 1
+	cmp x2,1
+	beq odd
+	bne even
+even: 
+	mov x0,x0,ASR 1
+	add x1,x1,1
+	b loop 	
+odd: 
+	mov x3,3
+	mul x0,x0,x3
+	add x0,x0,1
+	add x1,x1,1
+	b loop
+exit:
+	mov x0,x1
 	ret
-	*/
 	
 	.global _Z11double_eachPKji
 _Z11double_eachPKji:
@@ -89,9 +86,7 @@ _Z11double_eachPKji:
 	// 1010000
 	1110000
 	1010011
-*/
-
-	
+	*/
 	.global _Z9clearlow4m
 _Z9clearlow4m:
 	mov x1, 0xFFFFFFF0
@@ -113,3 +108,6 @@ _Z13togglebits4_9m:
 	mov x0,x2
 	ret
 	
+
+
+
