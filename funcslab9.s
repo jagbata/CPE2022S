@@ -12,33 +12,6 @@ loop:
 /*
 	.global _Z8evenProdii
 _Z8evenProdii:
-	mov x3,1
-	mov x4,x0
-loop1:	
-	cmp x4,x1
-	bge exit
-	and x2,x0,1
-	cmp x2,0
-	beq even
-	bne odd
-	add x4,x4,1
-odd:
-	add x2,x2,1
-	b loop1	
-even:
-	mov x5,0
-	mul x3,x2,x3
-	add x2,x2,1
-	add x5,x5,x3
-	b loop1
-	
-exit:
-	mov x0,x2
-	ret
-	*/
-	
-	.global _Z8evenProdii
-_Z8evenProdii:
 
 loop1:
 	cmp x0,x1
@@ -61,5 +34,26 @@ odd:
 	b loop1
 exit:
 	mov x0,x3
+	ret
+*/
+
+	.global _Z8evenProdii
+_Z8evenProdii:
+	mov x2,1
+loop1:
+	and x3,x0,1
+	cmp x3,1
+	beq odd
+even:
+	mul x2,x2,x0
+	add x0,x0,2
+	cmp x0,x1
+	ble even
+	b exit
+odd:
+	add x0,x0,1
+	b loop1
+exit:
+	mov x0,x2
 	ret
 
