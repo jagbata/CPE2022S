@@ -1,12 +1,11 @@
-	.global _Z3copyPmS_i
-_Z3copyPmS_i:
-	mov x3,#0
-	mov x5,2
+	.global _Z4copyPjS_i
+_Z4copyPjS_i:
 1:
-	ldr x4,[x0,x3]
-	mul x4,x4,x5
-	str x4,[x0,x3]
-	add x3,x3,#1
-	cmp x3,x2
-	bne 1b
+	ldr x4,[x1]
+	str x4,[x0]
+	sub x2,x2,#1
+	add x1,x1,#4
+	add x0,x0,#4
+	cmp x2,0
+	bgt 1b
 	ret

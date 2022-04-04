@@ -1,12 +1,14 @@
-#include<iostream>
+#include <iostream>
 using namespace std;
 
 
-extern uint64_t copy(uint64_t a[], uint64_t b[], int len);
+extern void copy(uint32_t a[], uint32_t b[], int len);
 
 int main(){
-int  a[10], b[10]= {3,4,5};
-cout<<copy(a,b,10);
+uint32_t  a[3] ={0,0,0};
+uint32_t b[3]= {3,4,5};
+copy(a,b,3);
+cout<<a[0]<<a[1]<<a[2];
 
 return 0;
 }
